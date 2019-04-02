@@ -39,7 +39,7 @@
           foreach (Language language in languages)
           {
             Item item = item4.Database.GetItem(item4.ID, language);
-            if (item.Versions.Count > 0)
+            if (item?.Versions.Count > 0)
             {
               sitemapLinkOptions2.UrlOptions.Language = language;
               string fullLink = GetFullLink(item, sitemapLinkOptions2);
@@ -74,7 +74,7 @@
       if (homeItem.HasChildren)
       {
         queue.Enqueue(homeItem);
-        if (homeItem.Versions.Count > 0)
+        if (homeItem?.Versions.Count > 0)
         {
           list.Add(homeItem);
         }
@@ -88,7 +88,7 @@
             {
               if (!ShouldBeSkipped(child))
               {
-                if (child.Versions.Count > 0)
+                if (child?.Versions.Count > 0)
                 {
                   list.Add(child);
                 }
@@ -115,7 +115,7 @@
                                  select language)
       {
         Item item2 = item.Database.GetItem(item.ID, item3);
-        if (item2.Versions.Count > 0)
+        if (item2?.Versions.Count > 0)
         {
           yield return item2;
         }
